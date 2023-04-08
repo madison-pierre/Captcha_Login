@@ -1,5 +1,12 @@
 <?php
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
+		//first check that captcha passes
+		
+		$captcha_answer = $_POST["captcha_answer"];
+		//IMPLEMENT THIS
+		
+		
+		// then do other login stuff
 		$user_username = $_POST["username"];
 		$user_psswrd = $_POST["psswrd"];
 		// hash password with md5
