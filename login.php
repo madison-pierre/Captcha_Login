@@ -1,10 +1,15 @@
 <?php
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		//first check that captcha passes
-		
-		$captcha_answer = $_POST["captcha_answer"];
-		//IMPLEMENT THIS
-		
+		// LOAD CAPTCHA 
+		require "hw5_captcha.php";
+ 
+		// (B) Verify if its corrext or not
+		if ($PHPCAP->verify($_POST["captcha"])) {
+		  $result = "Congrats, CAPTCHA is correct.";
+		  print_r($_POST);
+		}
+		else { echo "CAPTCHA does not match!"; }
 		
 		// then do other login stuff
 		$user_username = $_POST["username"];
@@ -42,7 +47,7 @@
 		else {
 			//this is the wrong username/password combo
 			echo "<p>**You've entered the wrong username/password. Please try again**</p>";
-			
+			echo "<button onclick="window.location.href='index.html'" > RETRY </button>";
 		}
 		$conn->close();
 	}

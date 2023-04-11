@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
 <link rel="stylesheet" href="hw5.css">
@@ -9,13 +8,17 @@
 	<form action="Files\login.php" method="post">
 	<label for="username"> Username :</label>
 	<input type="text" name="username"/>
+	<br>
 	<label for="psswrd">Password :</label>
-	<input type="text" name="psswrd"/>
+	<input type="password" name="psswrd"/>
 	<div>
-		<label for="captcha_answer"> Please type what you see in the box to prove you're not a bot : </label>
-		<img src="hw5_captcha.php">
-		<input type="text" name="input" id="captcha_answer"/>
-		<input type="hidden" name="flag" value="1"/>
+	<label>Please do the captcha to prove you're not a bot:</label>
+			<?php
+	  require "Files\hw5_captcha.php";
+	  $PHPCAP->prime();
+	  $PHPCAP->draw();
+	  ?>
+  <input name="captcha" type="text" required>
 	</div>
 	
 	<button type="submit"> Sign In </button>
