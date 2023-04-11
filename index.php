@@ -13,7 +13,7 @@
 	<input type="password" name="psswrd"/>
 	<div>
 	<label>Please do the captcha to prove you're not a bot:</label>
-			<?php
+	<?php
 	  require "Files\hw5_captcha.php";
 	  $PHPCAP->prime();
 	  $PHPCAP->draw();
