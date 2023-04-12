@@ -12,13 +12,13 @@
 	<label for="psswrd">Password :</label>
 	<input type="password" name="psswrd" required />
 	<div>
-	<label>Please do the captcha to prove you're not a bot:</label>
+	<!-- <label>Please do the captcha to prove you're not a bot:</label>
 	<?php
 	  require "Files\hw5_captcha.php";
 	  $PHPCAP->prime();
 	  $PHPCAP->draw();
-	  ?>
-  <input name="captcha" type="text" required />
+	  ?> 
+  <input name="captcha" type="text" required /> !-->
 	</div>
 	
 	<button type="submit"> Sign In </button>

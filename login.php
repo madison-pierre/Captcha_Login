@@ -4,13 +4,13 @@
 		// LOAD CAPTCHA 
 		require "hw5_captcha.php";
  
-		// (B) Verify if its corrext or not
+		/* // (B) Verify if its corrext or not
 		if ($PHPCAP->verify($_POST["captcha"])) {
 		  $result = "Congrats, CAPTCHA is correct.";
 		  print_r($_POST);
 		}
 		else { echo "CAPTCHA does not match!"; }
-		
+		*/
 		// then do other login stuff
 		$user_username = $_POST["username"];
 		$user_psswrd = $_POST["psswrd"];
