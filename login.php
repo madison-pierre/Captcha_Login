@@ -37,8 +37,8 @@
 		
 		//see if the entered username and password match an entry in the DB
 		$query = "SELECT username,password FROM UserAccounts 
-					WHERE username=$user_username AND 
-					password=$hash_password";
+					WHERE username='$user_username' AND 
+					password='$hash_password'";
 		$result = $conn->query($query);
 		echo "<br>"+result;
 		
