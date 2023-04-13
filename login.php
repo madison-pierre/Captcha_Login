@@ -1,4 +1,5 @@
 <?php
+	error_reporting(E_ALL);
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		//first check that captcha passes
 		// LOAD CAPTCHA 
@@ -16,6 +17,7 @@
 		$user_psswrd = $_POST["psswrd"];
 		// hash password with md5
 		$hash_password = md5($psswrd, false);
+		echo "SUCCESSFUL SO FAR";
 /*
 		//check that username and password are valid
 		
