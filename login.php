@@ -59,7 +59,8 @@
 	
 	}
 	else {
-		echo "Something went wrong, no POST detected";
+		echo "<p>Something went wrong, no POST detected</p>";
+	}
 	
 	
 	

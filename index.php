@@ -13,6 +13,7 @@
 	<input type="password" name="psswrd" required />
 	<!-- <label>Please do the captcha to prove you're not a bot:</label>
 	<?php
+	session_start();
 	/*
 	  require "hw5_captcha.php";
 	  $PHPCAP->prime();
