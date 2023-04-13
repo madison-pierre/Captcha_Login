@@ -17,8 +17,8 @@
 		$user_psswrd = $_POST["psswrd"];
 		// hash password with md5
 		$hash_password = md5($psswrd, false);
-		echo "SUCCESSFUL SO FAR";
-/*
+		
+
 		//check that username and password are valid
 		
 		//log into DB
@@ -34,8 +34,8 @@
 		else {
 			echo "Connected successfully";
 		}
-		
-		
+		echo "SUCCESSFUL SO FAR";
+/*		
 		//see if the entered username and password match an entry in the DB
 		$query = "SELECT username,password FROM UserAccounts 
 					WHERE username=$user_username AND 
