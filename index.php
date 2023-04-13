@@ -13,6 +13,7 @@
 	<input type="password" name="psswrd" required />
 	<label>Please do the captcha to prove you're not a bot:</label>
 	<?php
+		error_reporting(E_ALL);
 	//session_start();
 	/*
 	  require "hw5_captcha.php";
