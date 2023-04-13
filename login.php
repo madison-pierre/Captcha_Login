@@ -42,7 +42,7 @@
 			//get the user's clearance
 			$clearance_q = "SELECT clearance FROM UserAccounts WHERE username=$user_username";
 			$clearance = $conn->query($clearance_q);
-			header("Location:Files\dashboard.html");
+			header("Location:dashboard.html");
 		}
 		else {
 			//this is the wrong username/password combo
