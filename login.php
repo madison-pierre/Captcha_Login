@@ -40,6 +40,7 @@
 					WHERE username=$user_username AND 
 					password=$hash_password";
 		$result = $conn->query($query);
+		echo "<br>"+result;
 		
 		//if they are found, display the images on new html file, if not, display error
 		if ($result->num_rows > 0) { //successful log in
