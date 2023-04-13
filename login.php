@@ -42,21 +42,21 @@
 		$result = $conn->query($query);
 /*		
 		//if they are found, display the images on new html file, if not, display error
-		if ($result->num_rows > 0)
+		if ($result->num_rows > 0) {
 		{ //successful log in
 			//get the user's clearance
 			$clearance_q = "SELECT clearance FROM UserAccounts WHERE username=$user_username";
 			$clearance = $conn->query($clearance_q);
 			header("Location:dashboard.php");
-*/				
-		}
+				
+		} 
 		else {
 			//this is the wrong username/password combo
 			echo "<p>**You've entered the wrong username/password. Please try again**</p>";
 			echo "<button onclick="window.location.href='index.html'" > RETRY </button>";
 			}
 		$conn->close();
-		}
+*/	
 	}
 	else {
 		echo "<p>Something went wrong, no POST detected</p>";
