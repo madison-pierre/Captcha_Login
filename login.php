@@ -16,7 +16,7 @@
 		$user_psswrd = $_POST["psswrd"];
 		// hash password with md5
 		$hash_password = md5($psswrd, false);
-		
+/*
 		//check that username and password are valid
 		
 		//log into DB
@@ -28,6 +28,7 @@
 		if ($conn->connect_error) {
 			die("Connection failed: " . $conn->connect_error);
 			echo "BAD CONNECTION";
+		}
 		else {
 			echo "Connected successfully";
 		}
@@ -57,8 +58,7 @@
 			}
 		$conn->close();
 		}
-	
-	}
+*/
 	else {
 		echo "<p>Something went wrong, no POST detected</p>";
 	}
