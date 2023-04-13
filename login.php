@@ -27,8 +27,10 @@
 		$conn = new mysqli($servername, $username, $password);
 		if ($conn->connect_error) {
 			die("Connection failed: " . $conn->connect_error);
+		else {
+			echo "Connected successfully";
 		}
-		echo "Connected successfully";
+		
 		
 		//see if the entered username and password match an entry in the DB
 		$query = "SELECT username,password FROM UserAccounts 
@@ -42,7 +44,10 @@
 			//get the user's clearance
 			$clearance_q = "SELECT clearance FROM UserAccounts WHERE username=$user_username";
 			$clearance = $conn->query($clearance_q);
-			header("Location:dashboard.html");
+			redirect_to()
+			header("Location:dashboard.php");
+			
+			
 		}
 		else {
 			//this is the wrong username/password combo
