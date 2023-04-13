@@ -34,8 +34,7 @@
 		else {
 			echo "Connected successfully";
 		}
-		echo "SUCCESSFUL SO FAR";
-/*		
+		
 		//see if the entered username and password match an entry in the DB
 		$query = "SELECT username,password FROM UserAccounts 
 					WHERE username=$user_username AND 
@@ -50,8 +49,7 @@
 			$clearance = $conn->query($clearance_q);
 			redirect_to()
 			header("Location:dashboard.php");
-			
-			
+				
 		}
 		else {
 			//this is the wrong username/password combo
@@ -60,7 +58,6 @@
 			}
 		$conn->close();
 		}
-*/
 	}
 	else {
 		echo "<p>Something went wrong, no POST detected</p>";
