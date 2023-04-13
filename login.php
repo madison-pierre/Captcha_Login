@@ -17,7 +17,7 @@
 		$user_psswrd = $_POST["psswrd"];
 		// hash password with md5
 		$hash_password = md5($psswrd, false);
-		
+		echo "$user_username $hash_password";
 
 		//check that username and password are valid
 		
