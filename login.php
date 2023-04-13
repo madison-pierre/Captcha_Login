@@ -61,6 +61,7 @@
 		$conn->close();
 		}
 */
+	}
 	else {
 		echo "<p>Something went wrong, no POST detected</p>";
 	}
