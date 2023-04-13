@@ -53,9 +53,13 @@
 			//this is the wrong username/password combo
 			echo "<p>**You've entered the wrong username/password. Please try again**</p>";
 			echo "<button onclick="window.location.href='index.html'" > RETRY </button>";
-		}
+			}
 		$conn->close();
+		}
+	
 	}
+	else {
+		echo "Something went wrong, no POST detected";
 	
 	
 	
