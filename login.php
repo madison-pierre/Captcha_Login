@@ -21,7 +21,7 @@
 		$user_psswrd = $_POST["psswrd"];
 		// hash password with md5
 		$hash_password = md5($user_psswrd, false);
-		echo "$user_username $hash_password";
+		// echo "$user_username $hash_password";
 
 		//check that username and password are valid
 		
@@ -39,10 +39,8 @@
 		}
 		else {
 			echo " Connected successfully ";
-			if (mysqli_connect_errno())
-			{
-				echo "Failed to connect to MySQL: " . mysqli_connect_error();
-			}
+			mysqli_connect_error($conn);
+			
 			$test_q ="SELECT * FROM UserAccounts";
 			$test_result = $conn->query($test_q);
 			if (!test_result) {
@@ -72,7 +70,7 @@
 			echo "<p>**You've entered the wrong username/password. Please try again**</p>";
 			echo "<button action='index.php'> RETRY </button>";
 			}
-		$conn->close();
+		//$conn->close();
 
 	  }
 	else {
