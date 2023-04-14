@@ -1,5 +1,8 @@
 <?php
+	//enabling errors
 	error_reporting(E_ALL);
+	ini_set("display errors",1);
+	include("file_w_errors.php");
 	
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		//first check that captcha passes
