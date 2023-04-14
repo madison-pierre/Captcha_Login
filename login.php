@@ -37,9 +37,9 @@
 		
 		//see if the entered username and password match an entry in the DB
 		$query = sprintf("SELECT username FROM UserAccounts WHERE password='%s'",$conn->real_escape_string($hash_password)); 
-		echo $query;
+		// echo $query; We get to this statement then stop
 		//for some reason this query IS NOT WORKING. 
-		$result = $conn->query($query);
+		$result = mysqli_query($conn, $query); //trying procedural version
 		echo " $result ";
 		
 		//if they are found, display the images on new html file, if not, display error
