@@ -42,20 +42,23 @@
 		else {
 			echo " Connected successfully ";
 			mysqli_connect_error($conn);
-			
+			//see if the entered username and password match an entry in the DB
+			//test query
 			$test_q ="SELECT * FROM UserAccounts";
 			$test_result = $conn->query($test_q);
 			if (!$test_result) {
 			echo " QUERY DID NOT FAIL SEE $test_result"; 
 			}
+			else {
+				echo "QUERY ISN'T WORKING $test_result "
+			}
 		}
 		
-		//see if the entered username and password match an entry in the DB
-		//test query
+
 		
 		$result = "";
-		$query = $conn->prepare("SELECT clearance FROM UserAccounts WHERE password=?");
-		$query->bind_param('s',$hash_password);
+		$query = $conn->prepare("SELECT clearance FROM UserAccounts WHERE password=? AND username=?");
+		$query->bind_param('ss',$hash_password,$user_username);
 		$query->execute();
 		$query->bind_result($result);
 		// echo $query; We get to this statement then stop		
@@ -64,19 +67,16 @@
 		//if they are found, display the images on new html file, if not, display error
 		if ($result->num_rows > 0) { //successful log in
 			//get the user's clearance
-			$clearance_q = sprintf("SELECT clearance FROM UserAccounts WHERE username=%s",$conn->real_escape_string($user_username)) ;
-			$clearance = $conn->query($clearance_q);
+			$clearance = $result;
 			echo("<p>Redirecting...<p>");
-			header("Location:dashboard.php");
-				
+			$conn->close();	
+			header("Location:dashboard.php");	
 		} 
 		else {
 			//this is the wrong username/password combo
 			echo "<p>**You've entered the wrong username/password. Please try again**</p>";
 			echo "<button action='index.php'> RETRY </button>";
 			}
-		$conn->close();
-
 	  }
 	else {
 		echo "<p>Something went wrong, no POST detected</p>";
