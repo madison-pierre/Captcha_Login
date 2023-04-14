@@ -44,7 +44,7 @@
 		//if they are found, display the images on new html file, if not, display error
 		if ($result->num_rows > 0) { //successful log in
 			//get the user's clearance
-			$clearance_q = sprintf("SELECT clearance FROM UserAccounts WHERE username='%s'",$conn->real_escape_string($user_username)) ;
+			$clearance_q = sprintf("SELECT clearance FROM UserAccounts WHERE username='%s';",$conn->real_escape_string($user_username)) ;
 			$clearance = $conn->query($clearance_q);
 			echo("<p>Redirecting...<p>");
 			header("Location:dashboard.php");
