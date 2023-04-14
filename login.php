@@ -17,7 +17,7 @@
 		$user_psswrd = $_POST["psswrd"];
 		// hash password with md5
 		$hash_password = md5($user_psswrd, false);
-		echo "$user_username $hash_password";
+		//echo "$user_username $hash_password";
 
 		//check that username and password are valid
 		
@@ -36,15 +36,16 @@
 		}
 		
 		//see if the entered username and password match an entry in the DB
-		$query = sprintf("SELECT username FROM UserAccounts WHERE password='%s'",
-		$conn->real_escape_string($hash_password)); //for some reason this query IS NOT WORKING. 
+		$query = sprintf("SELECT username FROM UserAccounts WHERE password='%s'",$conn->real_escape_string($hash_password)); 
+		echo $query;
+		//for some reason this query IS NOT WORKING. 
 		$result = $conn->query($query);
-		echo " $result";
+		echo " $result ";
 		
 		//if they are found, display the images on new html file, if not, display error
 		if ($result->num_rows > 0) { //successful log in
 			//get the user's clearance
-			$clearance_q = "SELECT clearance FROM UserAccounts WHERE username=$user_username";
+			$clearance_q = sprintf("SELECT clearance FROM UserAccounts WHERE username='%s'",$conn->real_escape_string($user_username)) ;
 			$clearance = $conn->query($clearance_q);
 			echo("<p>Redirecting...<p>");
 			header("Location:dashboard.php");
@@ -53,7 +54,7 @@
 		else {
 			//this is the wrong username/password combo
 			echo "<p>**You've entered the wrong username/password. Please try again**</p>";
-			//echo "<button > RETRY </button>";
+			echo "<button > RETRY </button>";
 			}
 		$conn->close();
 
