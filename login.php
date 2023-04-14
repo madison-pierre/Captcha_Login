@@ -33,13 +33,14 @@
 		}
 		else {
 			echo " Connected successfully ";
+			$test_q ="SELECT * FROM UserAccounts";
+			$test_result = $conn->query(test_q);
+			echo $test_result;
 		}
 		
 		//see if the entered username and password match an entry in the DB
 		//test query
-		$test_q ="SELECT * FROM UserAccounts";
-		$test_result = $conn->query(test_q);
-		echo $test_result;
+		
 		$query = sprintf("SELECT username FROM UserAccounts WHERE password=%s",$conn->real_escape_string($hash_password)); 
 		// echo $query; We get to this statement then stop
 		$result = $conn->query($query);
