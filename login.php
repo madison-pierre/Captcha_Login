@@ -34,7 +34,7 @@
 		$db_name = "SiteDatabase";
 		//make connection
 		$conn = new mysqli($servername, $username, $password, $db_name);
-		echo $conn;
+		//echo $conn;
 		if ($conn->connect_error) {
 			die("Connection failed: " . $conn->connect_error);
 			echo "BAD CONNECTION";
@@ -45,7 +45,7 @@
 			
 			$test_q ="SELECT * FROM UserAccounts";
 			$test_result = $conn->query($test_q);
-			if (!test_result) {
+			if (!$test_result) {
 			echo " QUERY DID NOT FAIL SEE $test_result"; 
 			}
 		}
@@ -53,9 +53,12 @@
 		//see if the entered username and password match an entry in the DB
 		//test query
 		
-		$query = sprintf("SELECT username FROM UserAccounts WHERE password=%s",$conn->real_escape_string($hash_password)); 
-		// echo $query; We get to this statement then stop
-		$result = $conn->query($query);
+		$result = "";
+		$query = $conn->prepare("SELECT clearance FROM UserAccounts WHERE password=?");
+		$query->bind_param('s',$hash_password);
+		$query->execute();
+		$query->bind_result($result);
+		// echo $query; We get to this statement then stop		
 		echo " $result "; //result does not echo, is it because nothing is there?
 		
 		//if they are found, display the images on new html file, if not, display error
