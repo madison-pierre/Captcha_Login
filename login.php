@@ -1,5 +1,6 @@
 <?php
 	error_reporting(E_ALL);
+	
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		//first check that captcha passes
 		// LOAD CAPTCHA 
@@ -22,6 +23,8 @@
 		//check that username and password are valid
 		
 		//log into DB
+		
+		mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 		$servername = "localhost";
 		$username = "root";
 		$password = "COSC4343";
@@ -34,8 +37,9 @@
 		else {
 			echo " Connected successfully ";
 			$test_q ="SELECT * FROM UserAccounts";
-			$test_result = $conn->query(test_q);
-			echo $test_result;
+			$test_result = $conn->query($test_q);
+			if (!test_result) {
+			echo " QUERY DID NOT FAIL SEE $test_result"; }
 		}
 		
 		//see if the entered username and password match an entry in the DB
