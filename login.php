@@ -32,15 +32,14 @@
 			echo "BAD CONNECTION";
 		}
 		else {
-			echo "Connected successfully";
+			echo " Connected successfully ";
 		}
 		
 		//see if the entered username and password match an entry in the DB
-		$query = "SELECT username,password FROM UserAccounts 
-					WHERE username=$user_username AND 
-					password=$hash_password";
+		$query = sprintf("SELECT username FROM UserAccounts WHERE password='%s'",
+		$conn->real_escape_string($hash_password)); //for some reason this query IS NOT WORKING. 
 		$result = $conn->query($query);
-		echo "<br>"+result;
+		echo " $result";
 		
 		//if they are found, display the images on new html file, if not, display error
 		if ($result->num_rows > 0) { //successful log in
@@ -54,7 +53,7 @@
 		else {
 			//this is the wrong username/password combo
 			echo "<p>**You've entered the wrong username/password. Please try again**</p>";
-			//echo "<button onclick="window.location.href='index.html'" > RETRY </button>";
+			//echo "<button > RETRY </button>";
 			}
 		$conn->close();
 
