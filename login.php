@@ -31,8 +31,10 @@
 		$servername = "localhost";
 		$username = "root";
 		$password = "COSC4343";
+		$db_name = "SiteDatabase";
 		//make connection
-		$conn = new mysqli($servername, $username, $password, "SiteDatabase");
+		$conn = new mysqli($servername, $username, $password, $db_name);
+		echo $conn;
 		if ($conn->connect_error) {
 			die("Connection failed: " . $conn->connect_error);
 			echo "BAD CONNECTION";
@@ -70,7 +72,7 @@
 			echo "<p>**You've entered the wrong username/password. Please try again**</p>";
 			echo "<button action='index.php'> RETRY </button>";
 			}
-		//$conn->close();
+		$conn->close();
 
 	  }
 	else {

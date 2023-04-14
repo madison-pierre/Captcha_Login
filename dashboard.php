@@ -31,8 +31,9 @@
 		$servername = "localhost";
 		$username = "root";
 		$password = "COSC4343";
+		$db_name = "SiteDatabase";
 		//make connection
-		$conn = new mysqli($servername, $username, $password, 'SiteDatabase');
+		$conn = new mysqli($servername, $username, $password, $db_name);
 		if ($conn->connect_error) {
 			die("Connection failed: " . $conn->connect_error);
 			echo "BAD CONNECTION";
