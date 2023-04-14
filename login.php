@@ -36,10 +36,15 @@
 		}
 		else {
 			echo " Connected successfully ";
+			if (mysqli_connect_errno())
+			{
+				echo "Failed to connect to MySQL: " . mysqli_connect_error();
+			}
 			$test_q ="SELECT * FROM UserAccounts";
 			$test_result = $conn->query($test_q);
 			if (!test_result) {
-			echo " QUERY DID NOT FAIL SEE $test_result"; }
+			echo " QUERY DID NOT FAIL SEE $test_result"; 
+			}
 		}
 		
 		//see if the entered username and password match an entry in the DB
