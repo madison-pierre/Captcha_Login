@@ -47,10 +47,10 @@
 			$test_q ="SELECT * FROM UserAccounts";
 			$test_result = $conn->query($test_q);
 			if (!$test_result) {
-			echo " QUERY DID NOT FAIL SEE $test_result"; 
+			echo " QUERY DID NOT FAIL SEE $test_result"; //it really doesn't like test result
 			}
 			else {
-				echo "QUERY ISN'T WORKING $test_result "
+				echo "QUERY ISN'T WORKING $test_result";
 			}
 		}
 		
