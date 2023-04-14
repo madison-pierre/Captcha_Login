@@ -32,7 +32,7 @@
 		$username = "root";
 		$password = "COSC4343";
 		//make connection
-		$conn = new mysqli($servername, $username, $password, 'SiteDatabase');
+		$conn = new mysqli($servername, $username, $password, "SiteDatabase");
 		if ($conn->connect_error) {
 			die("Connection failed: " . $conn->connect_error);
 			echo "BAD CONNECTION";
