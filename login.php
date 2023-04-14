@@ -39,7 +39,7 @@
 		$query = sprintf("SELECT username FROM UserAccounts WHERE password=%s",$conn->real_escape_string($hash_password)); 
 		// echo $query; We get to this statement then stop
 		$result = $conn->query($query);
-		echo " $result ";
+		echo " $result "; //result does not echo, is it because nothing is there?
 		
 		//if they are found, display the images on new html file, if not, display error
 		if ($result->num_rows > 0) { //successful log in
@@ -53,7 +53,7 @@
 		else {
 			//this is the wrong username/password combo
 			echo "<p>**You've entered the wrong username/password. Please try again**</p>";
-			echo "<button > RETRY </button>";
+			echo "<button action='index.php'> RETRY </button>";
 			}
 		$conn->close();
 
