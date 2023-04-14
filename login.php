@@ -36,6 +36,10 @@
 		}
 		
 		//see if the entered username and password match an entry in the DB
+		//test query
+		$test_q ="SELECT * FROM UserAccounts";
+		$test_result = $conn->query(test_q);
+		echo $test_result;
 		$query = sprintf("SELECT username FROM UserAccounts WHERE password=%s",$conn->real_escape_string($hash_password)); 
 		// echo $query; We get to this statement then stop
 		$result = $conn->query($query);
@@ -44,7 +48,7 @@
 		//if they are found, display the images on new html file, if not, display error
 		if ($result->num_rows > 0) { //successful log in
 			//get the user's clearance
-			$clearance_q = sprintf("SELECT clearance FROM UserAccounts WHERE username='%s';",$conn->real_escape_string($user_username)) ;
+			$clearance_q = sprintf("SELECT clearance FROM UserAccounts WHERE username=%s",$conn->real_escape_string($user_username)) ;
 			$clearance = $conn->query($clearance_q);
 			echo("<p>Redirecting...<p>");
 			header("Location:dashboard.php");
