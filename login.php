@@ -10,7 +10,7 @@
 	session_start();
 
 	// CHECK CAPTCHA BEFORE ANYTHING ELSE
-	include_once $_SERVER['DOCUMENT_ROOT'] . 'securimage/securimage.php';
+	include_once $_SERVER['DOCUMENT_ROOT'] . '/securimage/securimage.php';
 	$securimage = new Securimage(); //create new secure image
 	if ($securimage->check($_POST['captcha_code']) == false) {
 	echo "The security code entered was incorrect.<br /><br />";
@@ -93,7 +93,7 @@
 		
 			displayImages($user_clearance, $images);
 			$conn->close();
-			printf("<button onclick='index.php'>Log Out</button>");
+			echo "<a href='javascript:history.go(-1)'>Log Out</a>";
 		}
 
 	}
