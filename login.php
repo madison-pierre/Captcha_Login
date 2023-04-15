@@ -3,6 +3,8 @@
 
 	session_start();
 
+	// CHECK CAPTCHA BEFORE ANYTHING ELSE
+
 	//starting connection
 	$servername = "localhost";
 	$username = "accessor";
@@ -84,7 +86,7 @@
 		
 			displayImages($user_clearance, $images);
 			$conn->close();
-			printf("<button action='index.php'>Log Out</button>");
+			printf("<button onclick='index.php'>Log Out</button>");
 		}
 
 	}
