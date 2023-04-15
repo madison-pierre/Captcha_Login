@@ -47,10 +47,10 @@
 		
 		//now we display the images
 		//create a list of them
-		$images = array($img1=imagecreatefrompng("photos/TopSecret.png"),
-			$img2=imagecreatefrompng("photos/Secret.png"),
-			$img3=imagecreatefrompng("photos/Confidential.png"),
-			$img4=imagecreatefrompng("photos/Unclassified.png"));
+		$images = array("photos/TopSecret.png",
+			"photos/Secret.png",
+			"photos/Confidential.png",
+			"photos/Unclassified.png");
 			
 			// run this function to see what displays
 			function displayImages($clearance) {
@@ -70,7 +70,9 @@
 				// this loop should display all the images the user is allowed to see
 				for($x=0; $x<$clearance_index; $x++)
 				{
-					printf("<img src='$images[$x]' alt='$clearance_index' />");
+					$pic = $images[$x];
+					printf("<img src='$pic' alt='$clearance_index' />");
+					imagedestroy($pic);
 				}
 			}
 		
