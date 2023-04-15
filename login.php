@@ -106,23 +106,24 @@ $hash_password = md5($_POST['psswrd']);
 $query = "";
 $result = "";
 
-if(!$conn)
-{
-	echo " Got a FALSE for conn ";
-}
-
 //query database
 if(isset($_POST['username']))
 {
     $sql = "SELECT clearance FROM useraccounts WHERE username=? AND password=?"; 
     $stmt = $conn->prepare($sql);
-    $ss = 'ss';
-    $stmt->bind_param($ss, $username, $hash_password);
+    $two_strings = "ss";
+    $stmt->bind_param($two_strings, $username, $hash_password);
+	if(!$stmt)
+	{
+	echo " Got a FALSE for stmt ";
+	}
+	else {
     var_dump($stmt);
     $stmt->execute();
     $result = $stmt->get_result();
     $user = $result->fetch_assoc(); 
     $clearance = $user['clearance'];
 	echo $clearance;
+	}
 }
 ?>
