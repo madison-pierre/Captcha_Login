@@ -42,7 +42,7 @@
 		$account = $result->fetch_assoc();
 		//getting the clearance
 		$user_clearance = $account["clearance"];
-		echo "GOT THE CLEARANCE";
+		//echo "GOT THE CLEARANCE";
 		
 		
 		//now we display the images
@@ -74,10 +74,10 @@
 					imagepng($images[$x]);
 				}
 			}
-		/*
+		
 			displayImages($user_clearance);
 			
-		*/
+		
 
 	}
 }
