@@ -1,10 +1,16 @@
 
 	<?php
+	//enabling errors
+	ini_set("display_errors", "1");
+	ini_set("display_startup_errors", "1");
+	error_reporting(E_ALL);
+	//mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+
 
 	session_start();
 
 	// CHECK CAPTCHA BEFORE ANYTHING ELSE
-	include_once $_SERVER['DOCUMENT_ROOT'] . '/securimage/securimage.php';
+	include_once $_SERVER['DOCUMENT_ROOT'] . 'securimage/securimage.php';
 	$securimage = new Securimage(); //create new secure image
 	if ($securimage->check($_POST['captcha_code']) == false) {
 	echo "The security code entered was incorrect.<br /><br />";
@@ -19,11 +25,7 @@
 	$db_name = "SiteDatabase";
 	$conn = new mysqli($servername, $username, $password, $db_name);
 
-	//enabling errors
-	// ini_set("display_errors", "1");
-	// ini_set("display_startup_errors", "1");
-	// error_reporting(E_ALL);
-	//mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+
 
 	//get form data
 	$username = $_POST['username'];
