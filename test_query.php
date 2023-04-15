@@ -5,8 +5,8 @@
 	include("file_w_errors.php");
 	
 	$servername = "localhost";
-		$username = "root";
-		$password = "COSC4343";
+		$username = "accessor";
+		$password = "phpIsNoFun";
 		$db_name = "SiteDatabase";
 		
 	$conn = new mysqli($servername, $username, $password, $db_name);
