@@ -28,7 +28,7 @@
 		
 		//log into DB
 		
-		mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+		
 		$servername = "localhost";
 		$username = "accessor";
 		$password = "phpIsNoFun";
@@ -99,6 +99,7 @@ $conn = new mysqli($servername, $username, $password, $db_name);
 ini_set("display_errors", "1");
 ini_set("display_startup_errors", "1");
 error_reporting(E_ALL);
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
 //get form data
 $username = $_POST['username'];
@@ -109,8 +110,8 @@ $result = "";
 //query database
 if(isset($_POST['username']))
 {
-    $sql = "SELECT clearance FROM useraccounts WHERE username=? AND password=?"; 
-    $stmt = $conn->prepare($sql);
+    $query = "SELECT clearance FROM UserAccounts WHERE username=? AND password=?"; 
+    $stmt = $conn->prepare($query);
 	if(!$stmt)
 	{
 	echo " Got a FALSE for stmt ";
