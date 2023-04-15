@@ -75,7 +75,7 @@
 				}
 			}
 		
-			displayImages($user_clearance);
+			displayImages($user_clearance, $images);
 			
 		
 
