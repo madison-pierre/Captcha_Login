@@ -4,7 +4,14 @@
 	session_start();
 
 	// CHECK CAPTCHA BEFORE ANYTHING ELSE
-
+	include_once $_SERVER['DOCUMENT_ROOT'] . '/securimage/securimage.php';
+	$securimage = new Securimage(); //create new secure image
+	if ($securimage->check($_POST['captcha_code']) == false) {
+	echo "The security code entered was incorrect.<br /><br />";
+	echo "Please go <a href='javascript:history.go(-1)'>back</a> and try again.";
+	exit;
+	}
+	
 	//starting connection
 	$servername = "localhost";
 	$username = "accessor";
@@ -56,25 +63,23 @@
 		
 		//now we display the images
 		//create a list of them
-		$images = array("photos/TopSecret.png",
-			"photos/Secret.png",
-			"photos/Confidential.png",
-			"photos/Unclassified.png");
+		$images = array("photos/Unclassified.png","photos/Confidential.png","photos/Secret.png","photos/TopSecret.png");
+			
 			
 			// run this function to see what displays
 			function displayImages($clearance, $images) {
 				
 				if ($clearance == "T") {
-					$clearance_index = 4;
-				}
-				elseif ($clearance == "S") {
 					$clearance_index = 3;
 				}
-				elseif ($clearance == "C") {
+				elseif ($clearance == "S") {
 					$clearance_index = 2;
 				}
-				else {
+				elseif ($clearance == "C") {
 					$clearance_index = 1;
+				}
+				else {
+					$clearance_index = 0;
 				}
 				// this loop should display all the images the user is allowed to see
 				for($x=0; $x<$clearance_index; $x++)
