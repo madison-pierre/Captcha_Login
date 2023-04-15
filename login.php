@@ -21,6 +21,11 @@
 	$hash_password = md5($_POST['psswrd']);
 	$query = "";
 	$result = "";
+	
+	function redirect()
+	{
+		header("Location: index.php");
+	}
 
 
 	if(isset($_POST['username']))
@@ -38,6 +43,13 @@
 		//var_dump($stmt);
 		$stmt->execute();
 		$result = $stmt->get_result();
+		//if bad login
+		if ($result->num_rows == 0)
+		{
+			echo " You entered an incorrect username/password ";
+			echo "<button action='redirect'>RETRY </button>";
+		}
+		else {
 		//fetching the associated account
 		$account = $result->fetch_assoc();
 		//getting the clearance
@@ -76,8 +88,8 @@
 			}
 		
 			displayImages($user_clearance, $images);
-			
-		
+			$conn->close();
+		}
 
 	}
 }
