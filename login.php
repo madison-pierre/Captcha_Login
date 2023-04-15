@@ -53,7 +53,7 @@
 			"photos/Unclassified.png");
 			
 			// run this function to see what displays
-			function displayImages($clearance) {
+			function displayImages($clearance, $images) {
 				
 				if ($clearance == "T") {
 					$clearance_index = 3;
@@ -72,7 +72,6 @@
 				{
 					$pic = $images[$x];
 					printf("<img src='$pic' alt='$clearance_index' />");
-					imagedestroy($pic);
 				}
 			}
 		
