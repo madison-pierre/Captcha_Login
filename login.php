@@ -35,7 +35,7 @@
 		else {
 		$two_strings = "ss";
 		$stmt->bind_param($two_strings, $username, $hash_password);
-		var_dump($stmt);
+		//var_dump($stmt);
 		$stmt->execute();
 		$result = $stmt->get_result();
 		//fetching the associated account
