@@ -1,3 +1,7 @@
+<html lang="en">
+<head>
+<link rel="stylesheet" href="hw5.css">
+</head>
 <?php
 /*
 	//enabling errors
@@ -107,14 +111,15 @@ $hash_password = md5($_POST['psswrd']);
 $query = "";
 $result = "";
 
-//query database
+
 if(isset($_POST['username']))
-{
-    $query = "SELECT clearance FROM UserAccounts WHERE username=? AND password=?"; 
+{	//query database
+    $query = "SELECT * FROM UserAccounts WHERE username=? AND password=?"; 
     $stmt = $conn->prepare($query);
 	if(!$stmt)
 	{
-	echo " Got a FALSE for stmt ";
+	echo " You entered an incorrect username/password ";
+	echo "<button value='Retry' />";
 	}
 	else {
 	$two_strings = "ss";
@@ -122,9 +127,45 @@ if(isset($_POST['username']))
     var_dump($stmt);
     $stmt->execute();
     $result = $stmt->get_result();
-    $user = $result->fetch_assoc(); 
-    $clearance = $user['clearance'];
-	echo $clearance;
+	//fetching the associated account
+    $account = $result->fetch_assoc();
+	//getting the clearance
+	$user_clearance = $account["clearance"];
+	
+	//now we display the images
+	//create a list of them
+	$images = array(imagecreatefrompng("photos\TopSecret.png"),
+		imagecreatefrompng("photos\Secret.png"),
+		imagecreatefrompng("photos\Confidential.png"),
+		imagecreatefrompng("photos\Unclassified.png"));
+		
+		// run this function to see what displays
+		function displayImages($clearance) {
+			
+			if ($clearance == "T") {
+				$clearance_index = 3;
+			}
+			elseif ($clearance == "S") {
+				$clearance_index = 2;
+			}
+			elseif ($clearance == "C") {
+				$clearance_index = 1;
+			}
+			else {
+				$clearance_index = 0;
+			}
+			// this loop should display all the images the user is allowed to see
+			for($x=0; $x<$clearance_index; $x++)
+			{
+				echo "<img src=$images[$x]>";
+			}
+		}
+		displayImages($user_clearance);
+		
+    
+
 	}
 }
 ?>
+
+</html>
