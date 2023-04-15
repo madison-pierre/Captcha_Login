@@ -4,10 +4,7 @@
 </head>
 <?php
 /*
-	//enabling errors
-	error_reporting(E_ALL);
-	ini_set("display errors",1);
-	include("file_w_errors.php");
+	
 	
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		//first check that captcha passes
@@ -119,7 +116,7 @@ if(isset($_POST['username']))
 	if(!$stmt)
 	{
 	echo " You entered an incorrect username/password ";
-	echo "<button value='Retry' />";
+	echo "<button value='Retry' action=""/>";
 	}
 	else {
 	$two_strings = "ss";
@@ -134,10 +131,10 @@ if(isset($_POST['username']))
 	
 	//now we display the images
 	//create a list of them
-	$images = array(imagecreatefrompng("..\photos\TopSecret.png"),
-		imagecreatefrompng("..\photos\Secret.png"),
-		imagecreatefrompng("..\photos\Confidential.png"),
-		imagecreatefrompng("..\photos\Unclassified.png"));
+	$images = array(imagecreatefrompng("TopSecret.png"),
+		imagecreatefrompng("Secret.png"),
+		imagecreatefrompng("Confidential.png"),
+		imagecreatefrompng("Unclassified.png"));
 		
 		// run this function to see what displays
 		function displayImages($clearance) {
