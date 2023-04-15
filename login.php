@@ -134,10 +134,10 @@ if(isset($_POST['username']))
 	
 	//now we display the images
 	//create a list of them
-	$images = array(imagecreatefrompng("photos\TopSecret.png"),
-		imagecreatefrompng("photos\Secret.png"),
-		imagecreatefrompng("photos\Confidential.png"),
-		imagecreatefrompng("photos\Unclassified.png"));
+	$images = array(imagecreatefrompng("\photos\TopSecret.png"),
+		imagecreatefrompng("\photos\Secret.png"),
+		imagecreatefrompng("\photos\Confidential.png"),
+		imagecreatefrompng("\photos\Unclassified.png"));
 		
 		// run this function to see what displays
 		function displayImages($clearance) {
