@@ -106,6 +106,11 @@ $hash_password = md5($_POST['psswrd']);
 $query = "";
 $result = "";
 
+if(!$conn)
+{
+	echo " Got a FALSE for conn ";
+}
+
 //query database
 if(isset($_POST['username']))
 {
