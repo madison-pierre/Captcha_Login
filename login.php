@@ -128,13 +128,13 @@ if(isset($_POST['username']))
     $account = $result->fetch_assoc();
 	//getting the clearance
 	$user_clearance = $account["clearance"];
-	
+/*	
 	//now we display the images
 	//create a list of them
-	$images = array(imagecreatefrompng("TopSecret.png"),
-		imagecreatefrompng("Secret.png"),
-		imagecreatefrompng("Confidential.png"),
-		imagecreatefrompng("Unclassified.png"));
+	$images = array($img1=imagecreatefrompng("photos/TopSecret.png"),
+		$img2=imagecreatefrompng("photos/Secret.png"),
+		$img3=imagecreatefrompng("photos/Confidential.png"),
+		$img4=imagecreatefrompng("photos/Unclassified.png"));
 		
 		// run this function to see what displays
 		function displayImages($clearance) {
@@ -159,7 +159,7 @@ if(isset($_POST['username']))
 		}
 		displayImages($user_clearance);
 		
-    
+    */
 
 	}
 }
