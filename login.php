@@ -30,7 +30,7 @@
 		if(!$stmt)
 		{
 		echo " You entered an incorrect username/password ";
-		echo "<button value='Retry' action=""/>";
+		//echo "<button value='Retry' action=""/>";
 		}
 		else {
 		$two_strings = "ss";
