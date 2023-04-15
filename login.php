@@ -14,7 +14,7 @@
 	ini_set("display_errors", "1");
 	ini_set("display_startup_errors", "1");
 	error_reporting(E_ALL);
-	mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+	//mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
 	//get form data
 	$username = $_POST['username'];
@@ -51,7 +51,7 @@
 			$img2=imagecreatefrompng("photos/Secret.png"),
 			$img3=imagecreatefrompng("photos/Confidential.png"),
 			$img4=imagecreatefrompng("photos/Unclassified.png"));
-			/*
+			
 			// run this function to see what displays
 			function displayImages($clearance) {
 				
@@ -73,6 +73,7 @@
 					echo "<img src=$images[$x]>";
 				}
 			}
+		/*
 			displayImages($user_clearance);
 			
 		*/
