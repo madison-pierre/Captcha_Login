@@ -85,7 +85,7 @@
 	
 	
 */
-<?php
+
 session_start();
 
 $servername = "localhost";
@@ -115,4 +115,5 @@ if(isset($_POST['username']))
     $user = $result->fetch_assoc(); 
     $clearance = $user['clearance'];
 	echo $clearance;
+}
 ?>
