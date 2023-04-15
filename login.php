@@ -1,4 +1,5 @@
 <?php
+/*
 	//enabling errors
 	error_reporting(E_ALL);
 	ini_set("display errors",1);
@@ -9,13 +10,13 @@
 		// LOAD CAPTCHA 
 		require "hw5_captcha.php";
  
-		/* // (B) Verify if its corrext or not
+		// (B) Verify if its corrext or not
 		if ($PHPCAP->verify($_POST["captcha"])) {
 		  $result = "Congrats, CAPTCHA is correct.";
 		  print_r($_POST);
 		}
 		else { echo "CAPTCHA does not match!"; }
-		*/
+		
 		// then do other login stuff
 		$user_username = $_POST["username"];
 		$user_psswrd = $_POST["psswrd"];
@@ -83,6 +84,35 @@
 	}
 	
 	
-	
-	
+*/
+<?php
+session_start();
+
+$servername = "localhost";
+$username = "accessor";
+$password = "phpIsNoFun";
+$db_name = "SiteDatabase";
+$conn = new mysqli($servername, $username, $password, $db_name);
+
+ini_set("display_errors", "1");
+ini_set("display_startup_errors", "1");
+error_reporting(E_ALL);
+
+$username = $_POST['username'];
+$hash_password = md5($_POST['pssword']);
+$query = "";
+$result = "";
+
+if(isset($_POST['username']))
+{
+    $sql = "SELECT clearance FROM useraccounts WHERE username=? AND password=?"; 
+    $stmt = $conn->prepare($sql);
+    $ss = 'ss';
+    $stmt->bind_param($ss, $username, $hash_password);
+    var_dump($stmt);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $user = $result->fetch_assoc(); 
+    $clearance = $user['clearance'];
+	echo $clearance;
 ?>
