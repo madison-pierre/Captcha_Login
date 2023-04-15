@@ -65,16 +65,16 @@
 			function displayImages($clearance, $images) {
 				
 				if ($clearance == "T") {
-					$clearance_index = 3;
+					$clearance_index = 4;
 				}
 				elseif ($clearance == "S") {
-					$clearance_index = 2;
+					$clearance_index = 3;
 				}
 				elseif ($clearance == "C") {
-					$clearance_index = 1;
+					$clearance_index = 2;
 				}
 				else {
-					$clearance_index = 0;
+					$clearance_index = 1;
 				}
 				// this loop should display all the images the user is allowed to see
 				for($x=0; $x<$clearance_index; $x++)

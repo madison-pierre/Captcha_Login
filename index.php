@@ -13,9 +13,9 @@
 	<input type="password" name="psswrd" required />
 	<!--Captcha section -->
 	<label>Please do the captcha to prove you're not a bot:</label>
-	<img id="captcha" src="/securimage/securimage_show.php" alt="CAPTCHA Image" />
+	<img id="captcha" src="securimage/securimage_show.php" alt="CAPTCHA Image" />
 	<input type="text" name="captcha_code" size="10" maxlength="6" />
-	<a href="#" onclick="document.getElementById('captcha').src = '/securimage/securimage_show.php?' + 
+	<a href="#" onclick="document.getElementById('captcha').src = 'securimage/securimage_show.php?' + 
 	Math.random(); return false">[ Different Image ]</a>
 	<?php
 		//setting up errors
