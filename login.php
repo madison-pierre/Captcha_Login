@@ -10,7 +10,7 @@
 	session_start();
 
 	// CHECK CAPTCHA BEFORE ANYTHING ELSE
-	include_once $_SERVER['DOCUMENT_ROOT'] . '/securimage/securimage.php';
+	include_once 'securimage/securimage.php';
 	$securimage = new Securimage(); //create new secure image
 	if ($securimage->check($_POST['captcha_code']) == false) {
 	echo "The security code entered was incorrect.<br /><br />";
