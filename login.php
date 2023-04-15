@@ -11,9 +11,9 @@
 	$conn = new mysqli($servername, $username, $password, $db_name);
 
 	//enabling errors
-	ini_set("display_errors", "1");
-	ini_set("display_startup_errors", "1");
-	error_reporting(E_ALL);
+	// ini_set("display_errors", "1");
+	// ini_set("display_startup_errors", "1");
+	// error_reporting(E_ALL);
 	//mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
 	//get form data
@@ -71,7 +71,7 @@
 				for($x=0; $x<$clearance_index; $x++)
 				{
 					$pic = $images[$x];
-					printf("<img src='$pic' alt='$clearance_index' />");
+					printf("<img src='$pic' alt='$clearance_index' width='500' height='500'/>");
 				}
 			}
 		
