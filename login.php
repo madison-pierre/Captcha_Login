@@ -70,8 +70,7 @@
 				// this loop should display all the images the user is allowed to see
 				for($x=0; $x<$clearance_index; $x++)
 				{
-					header("Content-type: image/png");
-					imagepng($images[$x]);
+					printf("<img src='$images[$x]' alt='$clearance_index' />");
 				}
 			}
 		
