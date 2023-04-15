@@ -4,7 +4,7 @@
 	ini_set("display errors",1);
 	include("file_w_errors.php");
 	
-	$servername = "localhost";
+	$servername = "127.0.0.1";
 	$username = "accessor";
 	$password = "phpIsNoFun";
 	$db_name = "SiteDatabase";
