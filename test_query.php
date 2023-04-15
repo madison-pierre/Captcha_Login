@@ -5,9 +5,9 @@
 	include("file_w_errors.php");
 	
 	$servername = "localhost";
-		$username = "accessor";
-		$password = "phpIsNoFun";
-		$db_name = "SiteDatabase";
+	$username = "accessor";
+	$password = "phpIsNoFun";
+	$db_name = "SiteDatabase";
 		
 	$conn = new mysqli($servername, $username, $password, $db_name);
 		//echo $conn;
@@ -26,4 +26,5 @@
 		else {
 				echo " QUERY ISN'T WORKING CANNOT PRINT TEST RESULT ";
 		}
+		$conn->close();
 ?>
