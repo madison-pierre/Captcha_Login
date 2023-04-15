@@ -21,11 +21,6 @@
 	$hash_password = md5($_POST['psswrd']);
 	$query = "";
 	$result = "";
-	
-	function redirect()
-	{
-		header("Location: index.php");
-	}
 
 
 	if(isset($_POST['username']))
@@ -89,6 +84,7 @@
 		
 			displayImages($user_clearance, $images);
 			$conn->close();
+			printf("<button action='index.php'>Log Out</button>");
 		}
 
 	}
