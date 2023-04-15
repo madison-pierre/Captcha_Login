@@ -42,7 +42,7 @@
 		$account = $result->fetch_assoc();
 		//getting the clearance
 		$user_clearance = $account["clearance"];
-		//echo $user_clearance;
+		echo "GOT THE CLEARANCE";
 		
 		
 		//now we display the images
@@ -70,7 +70,8 @@
 				// this loop should display all the images the user is allowed to see
 				for($x=0; $x<$clearance_index; $x++)
 				{
-					echo "<img src=$images[$x]>";
+					header("Content-type: image/png");
+					imagepng($images[$x]);
 				}
 			}
 		/*
