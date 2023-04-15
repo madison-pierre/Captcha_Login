@@ -88,21 +88,25 @@
 
 session_start();
 
+//starting connection
 $servername = "localhost";
 $username = "accessor";
 $password = "phpIsNoFun";
 $db_name = "SiteDatabase";
 $conn = new mysqli($servername, $username, $password, $db_name);
 
+//enabling errors
 ini_set("display_errors", "1");
 ini_set("display_startup_errors", "1");
 error_reporting(E_ALL);
 
+//get form data
 $username = $_POST['username'];
-$hash_password = md5($_POST['pssword']);
+$hash_password = md5($_POST['psswrd']);
 $query = "";
 $result = "";
 
+//query database
 if(isset($_POST['username']))
 {
     $sql = "SELECT clearance FROM useraccounts WHERE username=? AND password=?"; 
